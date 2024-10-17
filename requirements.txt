@@ -1,0 +1,7 @@
+py-cord==2.4.1
+python-dotenv
+# pytz
+# deep-translator
+# matplotlib
+peewee
+# tzlocal
