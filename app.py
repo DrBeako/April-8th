@@ -2,7 +2,7 @@ import os
 import discord
 from dotenv import load_dotenv  # type: ignore
 from lib.logsetup import init_log
-import peewee
+# import peewee
 from models import *
 
 init_log()
@@ -24,9 +24,9 @@ def add_exts(path: str) -> None:
 
 add_exts("./cogs")
 
-# @bot.event
-# async def on_ready() -> None:
-#     pass
+@bot.event
+async def on_ready() -> None:
+    print(f"Logged in as {bot.user}")
 
 # @bot.event
 # async def on_member_remove(member: discord.Member) -> None:
@@ -34,10 +34,10 @@ add_exts("./cogs")
 #     User.delete_by_id(member.id)
 
 if __name__ == '__main__':
-    db = BaseModel._meta.database
-    db.init(database=os.getenv("DB_PATH"), pragmas={'foreign_keys': 1})
-    db.connect()
-    db.create_tables([...])
+    # db = BaseModel._meta.database
+    # db.init(database=os.getenv("DB_PATH"), pragmas={'foreign_keys': 1})
+    # db.connect()
+    # db.create_tables([...])
     # db.close()
 
     bot.run(token=os.getenv("TOKEN"), reconnect=True)
