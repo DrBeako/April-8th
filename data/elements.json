@@ -1,0 +1,26 @@
+{
+	"hydro": {
+		"colour": "#08E4FE",
+		"name": "Hydro"
+	},
+	"electro": {
+		"colour": "#E0BBFF",
+		"name": "Electro"
+	},
+	"anemo": {
+		"colour": "#A6F4CC",
+		"name": "Anemo"
+	},
+	"geo": {
+		"colour": "#F4D862",
+		"name": "Geo"
+	},
+	"pyro": {
+		"colour": "#FDA56A",
+		"name": "Pyro"
+	},
+	"cryo": {
+		"colour": "#92CEDB",
+		"name": "Cryo"
+	}
+}
