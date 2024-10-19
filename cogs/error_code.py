@@ -22,7 +22,7 @@ class TemplateCog(commands.Cog):
                 ephemeral=True
             )
         else:
-            logger.error(error, stack_info=True)
+            logger.error("errorCode", exc_info=error, stack_info=True)
             await ctx.respond("ERROR yay", ephemeral=True)  # type: ignore
 
 
