@@ -15,9 +15,9 @@ class DiceRoll(commands.Cog):
     @discord.slash_command(name="roll", description="roll dice")  # type: ignore
     async def errorCode(self, ctx: discord) -> None:
         # do the stuff
-          result = random.randint(1,8)
-          word = convert_id(result)
-          await ctx.respond(f"{word}")
+        result = random.randint(1,8)
+        word = convert_id(result)
+        await ctx.respond(f"{word}")
 
     @errorCode.error  # type: ignore
     async def errorCodeErr(self, ctx: discord.Message, error: discord.ApplicationCommandError) -> None:

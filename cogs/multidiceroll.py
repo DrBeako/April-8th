@@ -8,6 +8,16 @@ from lib.types.roll import DicePhase
 from lib.types.roll import convert_id
 logger: logging.Logger = logging.getLogger('bot')
 
+# dice counts
+omni = 0
+pyro = 0
+cryo = 0
+electro = 0
+dendro = 0
+hydro = 0
+anemo = 0
+geo = 0
+
 class MultiDiceRoll(commands.Cog):
     def __init__(self, bot: discord.Bot) -> None:
         super().__init__()
@@ -16,17 +26,42 @@ class MultiDiceRoll(commands.Cog):
     @discord.slash_command(name="roll_more", description="roll multiple dice")  # type: ignore
     async def errorCode(self, ctx: discord, amount: int) -> None:
         # do the stuff
-        rolltime = 0
+        # defining variable for loops
         total = "none"
-        while rolltime < amount:
+        omni = 0
+        pyro = 0
+        cryo = 0
+        electro = 0
+        dendro = 0
+        hydro = 0
+        anemo = 0
+        geo = 0
+        for rolltime in range(amount):
             result = random.randint(1,8)
+            if result == 1:
+                omni = omni + 1
+            elif result == 2:
+                pyro = pyro + 1
+            elif result == 3:
+                cryo = cryo + 1
+            elif result == 4:
+                electro = electro + 1
+            elif result == 5:
+                dendro = dendro + 1
+            elif result == 6:
+                hydro = hydro + 1
+            elif result == 7:
+                anemo = anemo + 1
+            else:
+                geo = geo + 1
             word = convert_id(result)
-            rolltime = rolltime + 1
+            # replacing initial total veriable with first result
             if total == "none":
                 total = word
             total = word + total
 
         await ctx.respond(f"{total}")
+        await ctx.respond(f"There are {omni} omni, {pyro} pyro, {cryo} cryo, {electro} electro, {dendro} dendro, {hydro} hydro, {anemo} anemo, {geo} geo")
 
 
     @errorCode.error  # type: ignore
