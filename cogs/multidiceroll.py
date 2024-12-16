@@ -27,7 +27,7 @@ class MultiDiceRoll(commands.Cog):
     async def errorCode(self, ctx: discord, amount: int) -> None:
         # do the stuff
         # defining variable for loops
-        total = "none"
+        total = "You didn't roll shit"
         omni = 0
         pyro = 0
         cryo = 0
@@ -36,8 +36,10 @@ class MultiDiceRoll(commands.Cog):
         hydro = 0
         anemo = 0
         geo = 0
-        for rolltime in range(amount):
+        rolling = amount
+        for i in range(rolling):
             result = random.randint(1,8)
+            # counting dice
             if result == 1:
                 omni = omni + 1
             elif result == 2:
@@ -52,13 +54,14 @@ class MultiDiceRoll(commands.Cog):
                 hydro = hydro + 1
             elif result == 7:
                 anemo = anemo + 1
-            else:
+            elif result == 8:
                 geo = geo + 1
-            word = convert_id(result)
+            output = convert_id(result)
             # replacing initial total veriable with first result
-            if total == "none":
-                total = word
-            total = word + total
+            if total == "You didn't roll shit":
+                total = output
+            else:
+                total = output + total
 
         await ctx.respond(f"{total}")
         await ctx.respond(f"There are {omni} omni, {pyro} pyro, {cryo} cryo, {electro} electro, {dendro} dendro, {hydro} hydro, {anemo} anemo, {geo} geo")
